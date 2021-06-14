@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-C0D96FFBBE2B435D8DC501B267E9C45C">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-C0D96FFBBE2B435D8DC501B267E9C45C" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Azure AD Group Mapping" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureADGroupMapping" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureADGroupMapping/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureADGroupMapping/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureADGroupMapping/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{958BDE16-35E7-4969-A4B6-CF5BABD6E956}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/AzureADGroupMapping/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="SourceTenant" />
+                <FieldRef Name="SourceGroup" />
+                <FieldRef Name="TargetTenant" />
+                <FieldRef Name="TargetGroup" />
+                <FieldRef Name="Subscription" />
+                <FieldRef Name="SubscriptionRole" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+              <ViewData />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Lookup" DisplayName="Source Tenant" Required="FALSE" EnforceUniqueValues="FALSE" List="{listid:Azure AD Tenants}" ShowField="Title" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" ID="{1d927876-14ff-4523-b085-4e4d707f9370}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="SourceTenant" Name="SourceTenant" ColName="int2" RowOrdinal="0" Group="" Version="1" />
+            <Field Type="Text" DisplayName="Source Group" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{bd0215e0-6500-4ec6-ba90-aa358e4faede}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="SourceGroup" Name="SourceGroup" ColName="nvarchar4" RowOrdinal="0" CustomFormatter="" Version="1" />
+            <Field Type="Lookup" DisplayName="Target Tenant" Required="FALSE" EnforceUniqueValues="FALSE" List="{listid:Azure AD Tenants}" ShowField="Title" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" ID="{b81ef730-3cbd-4743-8ddc-2d5b7ba031c9}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="TargetTenant" Name="TargetTenant" ColName="int1" RowOrdinal="0" Group="" Version="1" />
+            <Field Type="Text" DisplayName="Target Group" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{eb956256-be8d-4c25-bfd4-9f02eacaf040}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="TargetGroup" Name="TargetGroup" ColName="nvarchar5" RowOrdinal="0" CustomFormatter="" Version="1" />
+            <Field Type="Lookup" DisplayName="Subscription" Required="FALSE" EnforceUniqueValues="FALSE" List="{listid:Azure Subscriptions}" ShowField="Title" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" ID="{ac02447c-ee80-4eb9-a186-b7be8ca548cf}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="Subscription" Name="Subscription" ColName="int3" RowOrdinal="0" />
+            <Field Type="Choice" DisplayName="Subscription Role" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{e291d4f9-3170-44c2-95a2-942dc86bee72}" SourceID="{{listid:Azure AD Group Mapping}}" StaticName="SubscriptionRole" Name="SubscriptionRole" ColName="nvarchar6" RowOrdinal="0" CustomFormatter="" Version="2">
+              <CHOICES>
+                <CHOICE>Reader</CHOICE>
+                <CHOICE>Contributor</CHOICE>
+                <CHOICE>Owner</CHOICE>
+              </CHOICES>
+            </Field>
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=c3c0cda2-4def-479c-9c18-0981c06ab6dd" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Azure AD Tenants" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureADTenants" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureADTenants/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureADTenants/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureADTenants/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:PropertyBagEntries>
+            <pnp:PropertyBagEntry Key="wte_Source" Value="https://envisionit.sharepoint.com/sites/Infrastructure/Lists/AzureAD/AllItems.aspx" Overwrite="false" />
+          </pnp:PropertyBagEntries>
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{1DDDFA8C-B8FB-4DBF-92BF-8284EF4666C0}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/AzureADTenants/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="TenantID" />
+                <FieldRef Name="Category" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="Tenant ID" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{531d0f5d-0041-4c33-8fed-300d79c031fd}" StaticName="TenantID" Name="TenantID" CustomFormatter="" ColName="nvarchar4" RowOrdinal="0" SourceID="{{listid:Azure AD Tenants}}" />
+            <Field Type="Choice" DisplayName="Category" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{52bcc058-804a-4ea6-ba22-9dd148a3e72e}" StaticName="Category" Name="Category" ColName="nvarchar5" RowOrdinal="0" SourceID="{{listid:Azure AD Tenants}}">
+              <CHOICES>
+                <CHOICE>Dev</CHOICE>
+                <CHOICE>QA</CHOICE>
+                <CHOICE>Production</CHOICE>
+              </CHOICES>
+            </Field>
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=83be5597-662c-4658-b199-d85f1295c22c" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Azure Subscriptions" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureSubscriptions" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureSubscriptions/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureSubscriptions/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureSubscriptions/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:PropertyBagEntries>
+            <pnp:PropertyBagEntry Key="wte_Source" Value="https://envisionit.sharepoint.com/sites/Infrastructure/Lists/NonProdAzureSubscription/AllItems.aspx" Overwrite="false" />
+          </pnp:PropertyBagEntries>
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{AC268777-33CB-43DD-B71F-ABA9B0C7E160}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/AzureSubscriptions/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="Title" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="SubscriptionID" />
+                <FieldRef Name="Notes" />
+                <FieldRef Name="Tenant" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="Subscription ID" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{5d564272-6c75-475d-b796-861ac8093620}" StaticName="SubscriptionID" Name="SubscriptionID" CustomFormatter="" ColName="nvarchar4" RowOrdinal="0" SourceID="{{listid:Azure Subscriptions}}" />
+            <Field Type="Text" DisplayName="Notes" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{3026d6d9-d141-40e8-b325-cbbccd31c9fd}" StaticName="Notes" Name="Notes" ColName="nvarchar5" RowOrdinal="0" SourceID="{{listid:Azure Subscriptions}}" />
+            <Field Type="Lookup" DisplayName="Tenant" Required="FALSE" EnforceUniqueValues="FALSE" List="{listid:Azure AD Tenants}" ShowField="Title" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" ID="{40e80aa1-e069-4103-8cb1-6c2a130d073d}" SourceID="{{listid:Azure Subscriptions}}" StaticName="Tenant" Name="Tenant" ColName="int1" RowOrdinal="0" Group="" Version="1" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=648ddb10-2605-4644-af89-68f067491a6d" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
