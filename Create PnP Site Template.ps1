@@ -2,9 +2,7 @@
     Non-Prod Environment Guest Access
 
     Prerequisites:
-        Install-Module AzureAD
-        Install-Module AZ
-        Install-Module CredentialManager
+        Install-Module PnP.PowerShell
 
     Purpose:
     - Adds guest accounts and populates a local AAD group for administering non-prod Azure subscriptions and SharePoint site collections

@@ -4,7 +4,6 @@
     Prerequisites:
         Install-Module AzureAD
         Install-Module AZ
-        Install-Module CredentialManager
         Install-Module PnP.PowerShell
 
     Purpose:
@@ -50,21 +49,7 @@ function UpdateTenant {
         [Parameter(Mandatory = $true)][string] $GroupName            # Name of the target group to populate with the guest users
     )
 
-    # Get the credentials for the tenant that we'll be working with
-    $Credentials = Get-StoredCredential -Target $tenantTitle 
-    if ($Credentials -eq $null) {
-        $UserName = Read-Host "Enter the username to connect with for $tenantTitle"
-        $Password = Read-Host "Enter the password for $UserName" -AsSecureString
-        if ($wshell.Popup("Save the credentials in Windows Credential Manager (Y/N)?", 0, "Alert", 32 + 4) -eq 6) {
-            $temp = New-StoredCredential -Target $tenantTitle -UserName $UserName -SecurePassword $Password -Persist Enterprise -Type Generic 
-        }
-        $Credentials = New-Object -typename System.Management.Automation.PSCredential -argumentlist $UserName, $Password
-    }
-    else {
-        Write-Verbose -Verbose -Message "Connecting with username $($Credentials.UserName)" 
-    }
-
-    Connect-AzureAD -TenantId $tenantId -Credential $Credentials
+    Connect-AzureAD -TenantId $tenantId
 
     # Check if the target group exists, and if not create it
     $staffGroup = Get-AzureADGroup -Filter "DisplayName eq '$GroupName'"
@@ -75,7 +60,7 @@ function UpdateTenant {
     # Get the current members of the target group
     $groupMembers = Get-AzureADGroupMember -ObjectId $staffGroup.ObjectId
 
-    Connect-AzAccount -Credential $Credentials
+    # Connect-AzAccount
     
     # Get the current global admins
     $azADGlobalAdminRole = Get-AzureADDirectoryRole -Filter "DisplayName eq 'Global Administrator'"

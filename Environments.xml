@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema">
   <pnp:Preferences Generator="PnP.Framework, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null" />
-  <pnp:Templates ID="CONTAINER-TEMPLATE-C0D96FFBBE2B435D8DC501B267E9C45C">
-    <pnp:ProvisioningTemplate ID="TEMPLATE-C0D96FFBBE2B435D8DC501B267E9C45C" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+  <pnp:Templates ID="CONTAINER-TEMPLATE-1BCD0D90549A4F749444F8C3D173890F">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-1BCD0D90549A4F749444F8C3D173890F" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
       <pnp:Lists>
         <pnp:ListInstance Title="Azure AD Group Mapping" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureADGroupMapping" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureADGroupMapping/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureADGroupMapping/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureADGroupMapping/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
@@ -40,9 +40,6 @@
               </CHOICES>
             </Field>
           </pnp:Fields>
-          <pnp:Webhooks>
-            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=c3c0cda2-4def-479c-9c18-0981c06ab6dd" ExpiresInDays="1" />
-          </pnp:Webhooks>
         </pnp:ListInstance>
         <pnp:ListInstance Title="Azure AD Tenants" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureADTenants" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureADTenants/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureADTenants/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureADTenants/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:PropertyBagEntries>
@@ -74,7 +71,7 @@
             </Field>
           </pnp:Fields>
           <pnp:Webhooks>
-            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=83be5597-662c-4658-b199-d85f1295c22c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=246a054b-dce1-48ae-8a9c-997d48566ffd" ExpiresInDays="1" />
           </pnp:Webhooks>
         </pnp:ListInstance>
         <pnp:ListInstance Title="Azure Subscriptions" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/AzureSubscriptions" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/AzureSubscriptions/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/AzureSubscriptions/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/AzureSubscriptions/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
@@ -107,7 +104,7 @@
             <Field Type="Lookup" DisplayName="Tenant" Required="FALSE" EnforceUniqueValues="FALSE" List="{listid:Azure AD Tenants}" ShowField="Title" UnlimitedLengthInDocumentLibrary="FALSE" RelationshipDeleteBehavior="None" ID="{40e80aa1-e069-4103-8cb1-6c2a130d073d}" SourceID="{{listid:Azure Subscriptions}}" StaticName="Tenant" Name="Tenant" ColName="int1" RowOrdinal="0" Group="" Version="1" />
           </pnp:Fields>
           <pnp:Webhooks>
-            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=648ddb10-2605-4644-af89-68f067491a6d" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://canadaeast0.pushnp.svc.ms/notifications?token=90c7d7be-c8ab-4fec-b255-8e8ff1db1a5b" ExpiresInDays="1" />
           </pnp:Webhooks>
         </pnp:ListInstance>
       </pnp:Lists>
