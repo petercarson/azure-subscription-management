@@ -16,4 +16,4 @@ $TemplateFilename = "$PSScriptRoot\Environments.xml"
 
 Connect-PnPOnline -Url $listSite -Interactive
 
-Get-PnPSiteTemplate -out $TemplateFilename -Handlers Lists -ListsToExtract "Azure Excluded Emails", "Azure AD Group Mapping", "Azure AD Tenants", "Azure Subscriptions"
+Get-PnPSiteTemplate -out $TemplateFilename -Handlers Lists -ListsToExtract "Azure Excluded Emails", "Azure AD Group Mapping", "Azure AD Tenants", "Azure Subscriptions", "Azure AD Excluded Emails"

@@ -22,7 +22,7 @@ function ReadConfiguration {
     )
 
     # Retrieve the content of the lists
-    Write-Host "Connecting to the prod tenant"
+    Write-Host "Connecting to the prod tenant at $listSite"
     Connect-PnPOnline -Url $listSite -Interactive
     $Global:Tenants = Get-PnPListItem -List "Azure AD Tenants"
     $Global:Subscriptions = Get-PnPListItem -List "Azure Subscriptions"
@@ -36,7 +36,7 @@ function ReadConfiguration {
     $TargetTenants = $TargetTenants | sort-object -Unique
 
     # Get the members of the source AAD group
-    Write-Output "Enter credentials for the prod AzureAD"
+    Write-Output "Enter credentials to read from the prod Azure AD"
     Connect-AzureAD
     $staffGroup = Get-AzureADGroup -Filter "DisplayName eq '$staffGroupName'"
     $Global:staffMembers = Get-AzureADGroupMember -ObjectId  $staffGroup.ObjectId
@@ -49,6 +49,7 @@ function UpdateTenant {
         [Parameter(Mandatory = $true)][string] $GroupName            # Name of the target group to populate with the guest users
     )
 
+    Write-Output "Enter credentials for the Azure AD tenant $tenantTitle"
     Connect-AzureAD -TenantId $tenantId
 
     # Check if the target group exists, and if not create it
